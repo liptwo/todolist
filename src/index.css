@@ -1,0 +1,53 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* @layer utilities {
+  .custom-scrollbar::-webkit-scrollbar {
+    width: 3px;
+    height: 3px;
+    border-radius: 2px;
+  }
+}
+
+@layer components{
+.navbar {
+  @apply top-0 z-10 sticky flex items-center justify-between py-3 px-10;
+}
+
+.nav-links {
+  @apply flex gap-8 max-md:hidden;
+}
+
+.nav-link {
+  @apply text-white text-heading3-bold cursor-pointer hover:text-pink-1;
+}
+
+.nav-right {
+  @apply flex gap-8 items-center;
+}
+
+.profile {
+  @apply w-8 h-auto cursor-pointer;
+}
+
+.icon {
+  @apply size-7 cursor-pointer text-white hover:text-pink-1;
+}
+
+.dropdown-menu {
+  @apply absolute top-20 p-3 flex flex-col gap-3 right-5 z-20 w-32 bg-white rounded-xl;
+}
+
+.dropdown-menu > a {
+  @apply text-base-bold text-black-1 hover:text-pink-1 cursor-pointer;
+}
+
+.search {
+  @apply flex justify-between items-center gap-2 px-4 py-2 rounded-xl;
+}
+
+.input-search {
+  @apply w-40 bg-transparent outline-none text-body-medium text-white;
+}
+} */
