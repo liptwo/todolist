@@ -23,11 +23,11 @@ const Modal = ({user, closeModal }) => {
 Modal.propTypes = {
   user: PropTypes.shape({
     id: PropTypes.number,
-    title: PropTypes.string,
-    date: PropTypes.string,
-    content: PropTypes.string
-  }),
-  closeModal: PropTypes.func,
+    title: PropTypes.string.isRequired,
+    date: PropTypes.string.isRequired,
+    content: PropTypes.string.isRequired
+  }).isRequired,
+  closeModal: PropTypes.func.isRequired,
 }
 
 export default Modal
