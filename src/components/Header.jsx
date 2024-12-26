@@ -10,34 +10,34 @@ const Header = () => {
   const modalRef = useRef(null);
 
   const closeModal = () => setMenuDrop(false);
-  useEffect(()=>{
-  const notesRef = ref(database, "ListNote");
-  get(notesRef)
-  .then((snapshot) => {
-    if (snapshot.exists()) {
-      const notes = snapshot.val();
-      const searchResults = [];
+  // useEffect(()=>{
+  // const notesRef = ref(database, "ListNote");
+  // get(notesRef)
+  // .then((snapshot) => {
+  //   if (snapshot.exists()) {
+  //     const notes = snapshot.val();
+  //     const searchResults = [];
 
-      // Lặp qua từng note và kiểm tra keyword trong tất cả các trường
-      Object.entries(notes).forEach(([key, note]) => {
-        const matches = Object.values(note).some((fieldValue) =>
-          String(fieldValue).toLowerCase().includes(search.toLowerCase())
-        );
+  //     // Lặp qua từng note và kiểm tra keyword trong tất cả các trường
+  //     Object.entries(notes).forEach(([key, note]) => {
+  //       const matches = Object.values(note).some((fieldValue) =>
+  //         String(fieldValue).toLowerCase().includes(search.toLowerCase())
+  //       );
 
-        if (matches) {
-          searchResults.push({ id: key, ...note });
-        }
-      });
+  //       if (matches) {
+  //         searchResults.push({ id: key, ...note });
+  //       }
+  //     });
 
-      console.log("Kết quả tìm kiếm:", searchResults);
-    } else {
-      console.log("Không có dữ liệu!");
-    }
-  })
-  .catch((error) => {
-    console.error("Lỗi khi tìm kiếm:", error);
-  });
-  },[search]);
+  //     console.log("Kết quả tìm kiếm:", searchResults);
+  //   } else {
+  //     console.log("Không có dữ liệu!");
+  //   }
+  // })
+  // .catch((error) => {
+  //   console.error("Lỗi khi tìm kiếm:", error);
+  // });
+  // },[search]);
 
   useEffect(() => {
     const handleClickOutside = (event) => {

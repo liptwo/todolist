@@ -8,7 +8,7 @@ import { getDatabase } from "firebase/database";
 // Your web app's Firebase configuration
 // For Firebase JS SDK v7.20.0 and later, measurementId is optional
 const firebaseConfig = {
-  apiKey: "AIzaSyA2N7PSiZTsy-1SNk9QzBS_j_nmGh8FKd4",
+  apiKey: import.meta.env.VITE_API_KEY,
   authDomain: "list-note-app.firebaseapp.com",
   projectId: "list-note-app",
   storageBucket: "list-note-app.firebasestorage.app",
