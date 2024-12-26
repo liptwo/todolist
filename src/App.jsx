@@ -1,11 +1,13 @@
-import Header from './components/Header.jsx'
-import ListNotes from './components/ListNotes'
+import CreateNote from "./components/CreateNote.jsx";
+import Header from "./components/Header.jsx";
+import ListNotes from "./components/ListNotes";
 
 export default function App() {
   return (
     <>
-    <Header/>
-    <ListNotes />
+      <Header />
+      <CreateNote />
+      <ListNotes />
     </>
-  )
+  );
 }

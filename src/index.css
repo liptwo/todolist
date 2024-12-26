@@ -51,3 +51,7 @@
   @apply w-40 bg-transparent outline-none text-body-medium text-white;
 }
 } */
+
+.scrollbar-hide::-webkit-scrollbar {
+  display: none;
+}
