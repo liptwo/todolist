@@ -1,30 +1,54 @@
 import React, { useState } from "react";
 import Modal from "./Modal";
 import PropTypes from "prop-types";
+import { CancelSharp } from "@mui/icons-material";
+import { ref , remove } from 'firebase/database';
+import database from "../firebase";
 
-const Note = ({ user }) => {
+
+const Note = ({ note }) => {
   const [showModal, setShowModal] = useState(false);
+  const [isHovered, setIsHovered] = useState(false);
 
   const openModal = () => setShowModal(true);
   const closeModal = () => setShowModal(false);
 
+  const handleRemove = async() => {
+    try{
+      const noteref = ref( database, `ListNote/${note.firebaseKey}`);
+      await remove(noteref);
+      console.log('Note deleted successfully');
+    }
+    catch(error){
+      console.log('Error deleting note: ', error);
+    }
+  }
+
   return (
     <>
-      <div className="w-full h-64 flex flex-col border border-opacity-30 justify-between hover:shadow-lg hover:dark:border-gray-500 bg-white dark:border-gray-300 rounded-lg  mb-6 py-5 px-4">
+      <div 
+        className="w-full h-64 flex flex-col border border-opacity-30 justify-between hover:shadow-lg hover:dark:border-gray-500 bg-white dark:border-gray-300 rounded-lg mb-6 py-5 px-4"
+        onMouseEnter={() => setIsHovered(true)}
+        onMouseLeave={() => setIsHovered(false)}
+      >
+        <div className={`fixed ${isHovered ? '' : 'hidden'}`}>
+          <button className="absolute top-[-30px] right-[3px]" onClick={handleRemove}><CancelSharp /></button>
+        </div>       
         <div>
+
           <div className="flex flex-row justify-between gap-4">
             <h4 className="text-gray-800 dark:text-black-100 font-bold mb-3">
-              {user.title}
+              {note.title}
             </h4>
             <div className="relative flex items-end justify-end text-gray-800 dark:text-black-100 font-bold mb-3">
-              {user.date}
+              {note.date}
             </div>
           </div>
-          <div className="">{user.content}</div>
+          <div className="">{note.content}</div>
         </div>
         <div>
           <div className="flex items-center justify-between text-gray-800 dark:text-black-100">
-            <p className="text-sm">{user.author}</p>
+            <p className="text-sm">{note.author}</p>
             <button
               className="w-8 h-8 rounded-full bg-gray-800 dark:bg-gray-100 dark:text-gray-800 text-white flex items-center justify-center focus:outline-none focus:ring-2 focus:ring-offset-2  focus:ring-black"
               aria-label="edit note"
@@ -49,14 +73,14 @@ const Note = ({ user }) => {
           </div>
         </div>
       </div>
-      {showModal && <Modal user={user} closeModal={closeModal} />}
+      {showModal && <Modal note={note} closeModal={closeModal} />}
     </>
   );
 };
 
 Note.propTypes = {
-  user: PropTypes.shape({
-    id: PropTypes.number,
+  note: PropTypes.shape({
+    id: PropTypes.string,
     title: PropTypes.string,
     date: PropTypes.string,
     content: PropTypes.string,
