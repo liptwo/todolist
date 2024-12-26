@@ -31,16 +31,16 @@ const Note = ({ note }) => {
         onMouseEnter={() => setIsHovered(true)}
         onMouseLeave={() => setIsHovered(false)}
       >
-        <div className={`fixed ${isHovered ? '' : 'hidden'}`}>
-          <button className="absolute top-[-30px] right-[3px]" onClick={handleRemove}><CancelSharp /></button>
+        <div className={`absolute ${isHovered ? '' : 'hidden'}`}>
+          <button className="relative top-[-35px] left-[-30px]" onClick={handleRemove}><CancelSharp /></button>
         </div>       
-        <div>
+        <div className="overflow-hidden ">
 
           <div className="flex flex-row justify-between gap-4">
             <h4 className="text-gray-800 dark:text-black-100 font-bold mb-3">
               {note.title}
             </h4>
-            <div className="relative flex items-end justify-end text-gray-800 dark:text-black-100 font-bold mb-3">
+            <div className="relative  flex items-end justify-end text-gray-800 dark:text-black-100 font-bold mb-3">
               {note.date}
             </div>
           </div>
