@@ -30,17 +30,18 @@ A real-time note-taking application built with React and Firebase, allowing user
 
 1. Clone the repository
 bash
-git clone https://github.com/your-username/note-taking-app.git
-cd note-taking-app
+git clone https://github.com/liptwo/todolist.git
+cd todolist
 
 2. Install dependencies
 bash
 npm install
 
-3. In file `.env` add your Firebase configuration:
-VITE_API_KEY=your_api_key
+3. In file firebase you need create a project Realtimme database then create a new firebase in /src and copy pastes code firebase provide.
+  
+4. You need hide you key_api of firebase then you need pastes your api_key in  `.env ` and in `firebase.js` you need add it like `import.meta.env.NAME_KEY_IN_ENV`.
 
-4. Start the development server
+5. Start the development server
 bash
 npm run dev
 
