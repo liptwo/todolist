@@ -56,7 +56,8 @@ npm run dev
 
 ## Demo
 
-![image](https://github.com/user-attachments/assets/5b027f93-4017-48c4-b996-ba430119140c)
+![image](https://github.com/user-attachments/assets/2e0f1015-2612-4f35-ab40-f71976e170a9)
+
 
 ## License
 
